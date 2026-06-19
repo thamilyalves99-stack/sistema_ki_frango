@@ -17,3 +17,8 @@ class PedidoAdmin(admin.ModelAdmin):
     # Impede que o funcionário delete pedidos, apenas edite ou adicione
     def has_delete_permission(self, request, obj=None):
         return request.user.is_superuser
+from django.contrib.auth.models import User
+
+# Cria o administrador automaticamente se não existir
+if not User.objects.filter(username='admin').exists():
+    User.objects.create_superuser('admin', 'admin@ki-frango.com', '123456')
