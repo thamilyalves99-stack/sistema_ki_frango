@@ -1,15 +1,10 @@
 import os
 from pathlib import Path
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-n3-jnfim60vz8jd3a23@-01&a#@hhmh2^%=n*=)jsm%b-n%707'
-
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
 ALLOWED_HOSTS = ['sistema-ki-frango.onrender.com', 'localhost', '127.0.0.1']
 
 INSTALLED_APPS = [
@@ -55,7 +50,7 @@ WSGI_APPLICATION = 'sistema_ki_frango.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -74,4 +69,14 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-JAZZ
+JAZZMIN_SETTINGS = {
+    "site_title": "Granja Ki-Frango",
+    "site_header": "Ki-Frango",
+    "site_brand": "Granja Ki-Frango",
+    "welcome_sign": "Painel de Gestão - Granja Ki-Frango",
+    "copyright": "Granja Ki-Frango Ltd",
+    "search_model": "auth.User",
+    "show_sidebar": True,
+    "navigation_expanded": True,
+    "theme": "emerald",
+}
