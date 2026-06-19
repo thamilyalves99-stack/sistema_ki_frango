@@ -123,6 +123,6 @@ JAZZMIN_SETTINGS = {
     "site_header": "Ki-Frango",
     "site_brand": "Granja Ki-Frango",
     "welcome_sign": "Bem-vindo ao Sistema da Granja Ki-Frango",
-    "theme": "flatly",  # Um tema limpo e bonito
+    "theme": "emerald",  # Um tema limpo e bonito
 }
 
