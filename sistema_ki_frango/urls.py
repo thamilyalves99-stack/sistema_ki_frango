@@ -1,4 +1,11 @@
 """
+from django.conf import settings
+from django.conf.urls.static import static
+
+# ... (seu código existente)
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 URL configuration for sistema_ki_frango project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -19,4 +26,11 @@ from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+from django.conf import settings
+from django.conf.urls.static import static
+
+# ... (seu código existente)
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 ]
