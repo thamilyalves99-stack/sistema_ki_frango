@@ -7,9 +7,11 @@ class GranjaKiFrangoConfig(AppConfig):
     name = 'Granja_ki_frango'
 
     def ready(self):
+        # Tenta criar o admin sempre que o app inicia
         try:
             User = get_user_model()
             if not User.objects.filter(username='admin').exists():
                 User.objects.create_superuser('admin', 'admin@ki-frango.com', '123456')
         except OperationalError:
-            pass # A tabela ainda não existe, o migrate vai tratar disso
+            # Se a tabela não existir, ele ignora e deixa o 'migrate' tratar
+            pass
