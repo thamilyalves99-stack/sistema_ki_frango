@@ -67,6 +67,11 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# Adicione isto para garantir que o Django sirva os arquivos corretamente
+STATICFILES_DIRS = []
+# Se você não usa WhiteNoise, o Render precisa deste ajuste:
+import os
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 JAZZMIN_SETTINGS = {
     "site_title": "Granja Ki-Frango",
