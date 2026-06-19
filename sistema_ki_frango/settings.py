@@ -1,4 +1,3 @@
-"""
 import os
 Django settings for sistema_ki_frango project.
 
@@ -119,10 +118,63 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 JAZZMIN_SETTINGS = {
+    # Títulos do Painel
     "site_title": "Granja Ki-Frango",
     "site_header": "Ki-Frango",
     "site_brand": "Granja Ki-Frango",
-    "welcome_sign": "Bem-vindo ao Sistema da Granja Ki-Frango",
-    "theme": "emerald",  # Um tema limpo e bonito
+    "welcome_sign": "Painel de Gestão - Granja Ki-Frango",
+    "copyright": "Granja Ki-Frango Ltd",
+    
+    # Visual e Organização (Menu Lateral igual ao da foto)
+    "search_model": "auth.User",
+    "user_avatar": None,
+    "topmenu_links": [
+        {"name": "Início", "url": "admin:index", "permissions": ["auth.view_user"]},
+    ],
+    "show_sidebar": True,
+    "navigation_expanded": True,
+    
+    # Ícones para parecer o menu da imagem (Clientes, Vendas, etc.)
+    "icons": {
+        "auth": "fas fa-users-cog",
+        "auth.user": "fas fa-user",
+        "auth.Group": "fas fa-users",
+    },
+    
+    # Tema de Cores (Verde Escuro no Menu e Verde Claro nos Detalhes)
+    "theme": "emerald",
+    "dark_mode_theme": None,
+    "ui_builder": True, # Ativa a personalização fina de cores
 }
+
+# Cores exatas para simular o verde da Granja Ki-Frango
+JAZZMIN_UI_TWEAKS = {
+    "navbar_small_text": False,
+    "footer_small_text": False,
+    "body_small_text": False,
+    "brand_small_text": False,
+    "brand_colour": "navbar-success",
+    "accent": "accent-success",
+    "navbar": "navbar-dark navbar-success",
+    "no_navbar_border": False,
+    "navbar_fixed": True,
+    "layout_fixed": True,
+    "sidebar_fixed": True,
+    "sidebar": "sidebar-dark-success",
+    "sidebar_nav_small_text": False,
+    "sidebar_disable_expand": False,
+    "sidebar_nav_child_indent": True,
+    "sidebar_nav_compact_sidebar": False,
+    "sidebar_nav_legacy_style": False,
+    "sidebar_nav_flat_style": False,
+    "theme": "emerald",
+    "dark_mode_theme": None,
+    "button_classes": {
+        "primary": "btn-success",
+        "secondary": "btn-secondary",
+        "info": "btn-info",
+        "warning": "btn-warning",
+        "danger": "btn-danger",
+        "success": "btn-success"
+    }
 
