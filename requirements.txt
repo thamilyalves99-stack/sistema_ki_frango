@@ -1,6 +1,4 @@
 django
 gunicorn
 django-jazzmin
-dj-database-url
-psycopg2-binary
 whitenoise
