@@ -1,0 +1,8 @@
+{% extends "admin/change_list.html" %}
+
+{% block result_list %}
+    {{ block.super }}
+    <div style="padding: 15px; font-weight: bold; font-size: 18px; background: #e8f5e9; border: 1px solid #c8e6c9;">
+        Total Filtrado (KG): {{ total_quantidade }}
+    </div>
+{% endblock %}
