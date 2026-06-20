@@ -8,16 +8,15 @@ DEBUG = True
 ALLOWED_HOSTS = ['sistema-ki-frango.onrender.com', 'localhost', '127.0.0.1']
 
 INSTALLED_APPS = [
-    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # 'jazzmin',  <-- COMENTA ESTA LINHA COM #
     'Granja_ki_frango',
 ]
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -47,10 +46,14 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'sistema_ki_frango.wsgi.application'
 
+import dj_database_url
+import os
+
+# Adiciona isto ao teu settings.py
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.environ.get('DATABASE_URL', os.path.join(BASE_DIR, 'db.sqlite3')),
     }
 }
 AUTH_PASSWORD_VALIDATORS = [
