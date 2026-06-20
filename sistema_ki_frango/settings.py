@@ -1,6 +1,5 @@
 import os
 from pathlib import Path
-import sys
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -48,7 +47,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'sistema_ki_frango.wsgi.application'
 
-# Configuração que protege o banco de dados durante o Build
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
