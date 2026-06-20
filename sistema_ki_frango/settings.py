@@ -1,5 +1,6 @@
 import os
 from pathlib import Path
+import sys
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -14,11 +15,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 'jazzmin',  <-- COMENTA ESTA LINHA COM #
     'Granja_ki_frango',
 ]
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -46,16 +48,14 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'sistema_ki_frango.wsgi.application'
 
-import dj_database_url
-import os
-
-# Adiciona isto ao teu settings.py
+# Configuração que protege o banco de dados durante o Build
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.environ.get('DATABASE_URL', os.path.join(BASE_DIR, 'db.sqlite3')),
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
     {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
@@ -63,27 +63,4 @@ AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 
-LANGUAGE_CODE = 'en-us'
-TIME_ZONE = 'UTC'
-USE_I18N = True
-USE_TZ = True
-
-STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-# Adicione isto para garantir que o Django sirva os arquivos corretamente
-STATICFILES_DIRS = []
-# Se você não usa WhiteNoise, o Render precisa deste ajuste:
-import os
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-JAZZMIN_SETTINGS = {
-    "site_title": "Granja Ki-Frango",
-    "site_header": "Ki-Frango",
-    "site_brand": "Granja Ki-Frango",
-    "welcome_sign": "Painel de Gestão - Granja Ki-Frango",
-    "copyright": "Granja Ki-Frango Ltd",
-    "search_model": "auth.User",
-    "show_sidebar": True,
-    "navigation_expanded": True,
-    "theme": "emerald",
-}
+LANGUAGE
